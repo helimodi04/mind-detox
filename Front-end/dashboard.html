@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Detox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dash.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/quote.css" />
+    <link rel="stylesheet" href="css/mood.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="brand">MIND DETOX</span>
+        </div>
+        <nav class="nav-center">
+            <!-- Navbar links -->
+            <ul class="nav-links">
+                <li><a href="#breathing-circle">Breathing Circle</a></li>
+                <li><a href="#motivational-quote">Motivational Quote</a></li>
+                <li><a href="#mood-tracker">Mood Tracker</a></li>
+                <li><a href="#screen-time-goal">Screen Time Goal</a></li>
+                <li><a href="#journal-writing">Journal Writing</a></li>
+            </ul>
+        </nav>
+        <div class="nav-right">
+            <button class="hamburger" type="button">
+                <span class="menu-text"></span> &#9776;
+            </button>
+            <div class="side-drawer" id="drawer">
+                <button class="drawer-close" onclick="closeDrawer()">×</button>
+                <div class="drawer-title">Menu</div>
+                <!-- Hamburger/Drawer links -->
+                <ul class="drawer-list">
+                    <li><a href="#breathing-circle">Breathing Circle</a></li>
+                    <li><a href="#motivational-quote">Motivational Quote</a></li>
+                    <li><a href="#mood-tracker">Mood Tracker</a></li>
+                    <li><a href="#screen-time-goal">Screen Time Goal</a></li>
+                    <li><a href="#journal-writing">Journal Writing</a></li>
+                    <li><a href="#chatbot">Chatbot</a></li>
+                    <li><a href="#graph">Graph</a></li>
+                    <li><a href="#zen-garden">Zen Garden Rake Game</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Lifelong <br>mental fitness, <br>for everyone</h1>
+            <p>
+                A trusted app promoting mindfulness and mental wellness, backed by experts and free for all.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="../assets/hero-image.jpg" alt="Hero Image" />
+        </div>
+    </section>
+
+    <div class="dashboard-section">
+        <section id="quoteSection" class="quote-section">
+            <div class="quote-container">
+                <div class="quote-image">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Dreamy background">
+                </div>
+                <div class="quote-box">
+                    <p id="quoteText" class="quote-text">Loading motivational quote...</p>
+                    <p id="quoteAuthor" class="quote-author"></p>
+                    <button type="button" id="getQuoteBtn" class="quote-btn">New Quote</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mood Dropdown -->
+        <div class="mood-selector">
+            <label for="mood">Select Mood:</label>
+            <select id="mood" name="mood">
+                <option value="" disabled selected>-- Choose your mood --</option>
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😔 Sad</option>
+                <option value="anxious">😟 Anxious</option>
+                <option value="angry">😠 Angry</option>
+                <option value="excited">🤩 Excited</option>
+                <option value="tired">😴 Tired</option>
+                <option value="calm">😌 Calm</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="moodChart" width="400" height="250"></canvas>
+        </div>
+
+        <section class="breathing-wrapper">
+            <div class="breathing-container">
+                <div class="breathing-left">
+                    <div class="breathing-visual">
+                        <div class="circle-animation"></div>
+                        <div id="breath-instruction">Get Ready...</div>
+                    </div>
+                    <button type="button" id="breath-btn" onclick="toggleBreathing()" class="start-btn">Start
+                        Breathing</button>
+                </div>
+                <div class="breathing-content">
+                    <h2 class="breathing-title">Just Breathe</h2>
+                    <p class="breathing-description">
+                        Breathing deeply helps you slow down and become aware of the present. Try inhaling slowly...
+                        hold... and then exhale.
+                        Repeat this to reduce anxiety and regain calm. The expanding circle will guide your breath —
+                        just follow along.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="screen-time-goal" class="feature-section">
+            <h2>Screen Time Goal</h2>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="breath.js"></script>
+    <script src="chart.js"></script>
+    <script src="quotes.js"></script>
+    <script>
+        document.querySelector('.hamburger').onclick = function () {
+            document.getElementById('drawer').classList.add('show');
+        };
+        function closeDrawer() {
+            document.getElementById('drawer').classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>
