@@ -47,11 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayMessage(message, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', `${sender}-message`);
-        messageElement.textContent = message;
-        
-        chatWindow.appendChild(messageElement);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chatbot-message'); // ye CSS se match karega
+    if (sender === 'user') {
+        messageElement.classList.add('user'); // ye bhi CSS se match karega
     }
+    messageElement.textContent = message;
+
+    chatWindow.appendChild(messageElement);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
 });
