@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = '';
 
         try {
-            const response = await fetch('http://localhost:3000/chat', {
+            const response = await fetch('https://mind-detox.onrender.com/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayMessage(message, sender) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chatbot-message'); // ye CSS se match karega
-    if (sender === 'user') {
-        messageElement.classList.add('user'); // ye bhi CSS se match karega
-    }
-    messageElement.textContent = message;
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chatbot-message'); // ye CSS se match karega
+        if (sender === 'user') {
+            messageElement.classList.add('user'); // ye bhi CSS se match karega
+        }
+        messageElement.textContent = message;
 
-    chatWindow.appendChild(messageElement);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-}
+        chatWindow.appendChild(messageElement);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
 });
