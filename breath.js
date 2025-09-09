@@ -56,3 +56,4 @@ function stopBreathing() {
     circle.style.transform = "scale(1)";
     instruction.textContent = "Get Ready...";
 }
+

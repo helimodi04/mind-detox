@@ -1,0 +1,126 @@
+/* responsive.css - AI Generated Patch */
+
+/* Applying rules for screens 768px or smaller */
+@media (max-width: 768px) {
+
+    /* === Global & Body === */
+    /* Ref: dash.css, style.css */
+    body {
+        padding-top: 80px; /* adjust body padding */
+    }
+    .main-content {
+        padding: 0 16px; /* add horizontal padding */
+    }
+    .welcome-heading {
+        font-size: 2.5rem; /* mobile welcome text */
+    }
+
+    /* === Navbar (nav.css) === */
+    .navbar {
+        padding: 16px 20px; /* mobile nav padding */
+    }
+    .navbar .nav-left .brand {
+        font-size: 2rem; /* mobile brand size */
+        letter-spacing: 2px;
+    }
+
+    /* === Hero (hero.css) === */
+    .hero-section {
+        margin-top: 80px;
+        padding-bottom: 40px;
+        text-align: center; /* center hero text */
+    }
+    .hero-content {
+        flex-direction: column; /* stack content vertically */
+        gap: 30px;
+        margin: 10px;
+    }
+    .hero-text {
+        padding-top: 0;
+    }
+    .hero-text h1 {
+        font-size: 2.8rem; /* mobile heading size */
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+    .hero-desc {
+        font-size: 1.1rem; /* mobile description size */
+    }
+
+    /* === Breathing (breath.css) === */
+    .breathing-wrapper {
+        padding: 40px 15px;
+    }
+    .breathing-container {
+        flex-direction: column; /* stack content vertically */
+        gap: 40px;
+    }
+    .breathing-visual {
+        width: 250px; /* smaller circle */
+        height: 250px;
+        margin: 15px;
+    }
+    .breathing-title {
+        font-size: 2.2rem; /* mobile title size */
+    }
+    .breathing-description {
+        font-size: 1.1rem; /* mobile text size */
+        line-height: 1.7;
+    }
+
+    /* === Quote (quote.css) === */
+    .quote-section {
+        padding: 20px 10px;
+        margin-top: 20px;
+    }
+    .quote-container {
+        flex-direction: column; /* stack content vertically */
+        gap: 40px; /* reduce gap */
+    }
+    .quote-image {
+        min-width: 0; /* remove restrictive width */
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+    .quote-box {
+        padding: 30px; /* smaller padding */
+        min-width: 0;
+    }
+    .quote-text {
+        font-size: 1.8rem; /* mobile quote size */
+    }
+
+    /* === Mood/Chart (mood.css) === */
+    .mood-container {
+        flex-direction: column; /* stack content vertically */
+        gap: 30px;
+    }
+    .mood-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mood-wheel {
+        flex-wrap: wrap; /* allow emojis to wrap */
+        gap: 12px;
+    }
+    .chart-container canvas {
+        height: 300px !important; /* smaller chart height */
+    }
+
+    /* === Chatbot (chatbot.css) === */
+    .chatbot-fab {
+        right: 16px; /* adjust position */
+        bottom: 16px;
+    }
+    .chatbot-popup {
+        width: 90vw; /* flexible width */
+        right: 5vw;
+        bottom: 90px;
+    }
+
+    /* === Zen Garden (zen-garden.css) === */
+    .zen-garden-section {
+        margin: 24px 0; /* adjust margins */
+        padding: 24px 0;
+    }
+}

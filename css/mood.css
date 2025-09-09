@@ -1,9 +1,54 @@
-
 .mood-section {
     margin-top: 0;
     width: 100%;
-    background-color: #edfafa; /* light teal bg */
-    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px #2B828211;
+    padding: 36px 0 32px 0;
+    margin: 48px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.mood-title {
+    color: #2B8282;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.mood-wheel {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.mood-emoji {
+    font-size: 2.2rem;
+    background: #fff;
+    border: 2px solid #2B8282;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-emoji:hover, .mood-emoji.selected {
+    background: #2B8282;
+    color: #fff;
+    transform: scale(1.15);
+}
+
+.mood-reflection {
+    color: #379696;
+    font-size: 1.1rem;
+    margin-top: 18px;
+    font-weight: 600;
 }
 
 .mood-container {
@@ -79,6 +124,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 24px;
 }
 
 /* Responsive Chart */
