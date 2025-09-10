@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="css/chatbot.css" />
     <link rel="stylesheet" href="css/zen-garden.css" />
     <link rel="stylesheet" href="css/journal.css" />
-    <link rel="stylesheet" href="responsive.css"> 
-
+    <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
@@ -206,23 +205,7 @@
     <script src="zen-garden.js"></script>
     <script src="journal.js"></script>
     <script src="ui.js"></script>
-    <script>
-        document.querySelector('.hamburger').onclick = function () {
-            document.getElementById('drawer').classList.add('show');
-        };
-        function closeDrawer() {
-            document.getElementById('drawer').classList.remove('show');
-        }
-
-        // Chatbot FAB functionality
-        document.getElementById('chatbot-fab').onclick = function () {
-            document.getElementById('chatbot').style.display = 'block';
-        };
-
-        document.getElementById('chatbot-close').onclick = function () {
-            document.getElementById('chatbot').style.display = 'none';
-        };
-    </script>
+    
 </body>
 
 </html>

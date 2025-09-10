@@ -10,9 +10,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
 
-const PORT = 3000;
+// Serve everything in public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.GEMINI_API_KEY;
 
 if (!API_KEY) {
@@ -22,10 +24,12 @@ if (!API_KEY) {
 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
+// Serve dashboard.html from root or public folder
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dashboard.html'));
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
+// Chatbot endpoint
 app.post('/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
@@ -34,9 +38,7 @@ app.post('/chat', async (req, res) => {
         const data = {
             contents: [{
                 role: "user",
-                parts: [{
-                    text: `${systemPrompt}\n\nUser: ${userMessage}`
-                }]
+                parts: [{ text: `${systemPrompt}\n\nUser: ${userMessage}` }]
             }]
         };
 

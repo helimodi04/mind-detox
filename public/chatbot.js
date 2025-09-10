@@ -23,13 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = '';
 
         try {
-            const response = await fetch("https://mind-detox-2.onrender.com/api/chat", {
+            const response = await fetch("https://mind-detox-2.onrender.com/chat", {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage })
             });
+
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
