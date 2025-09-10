@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = '';
 
         try {
-            const response = await fetch('http://localhost:3000/chat', {
+            const response = await fetch("https://mind-detox-2.onrender.com/api/chat", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
