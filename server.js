@@ -30,24 +30,47 @@ app.get('/', (req, res) => {
 });
 
 // Chatbot endpoint
-app.post('/chat', async (req, res) => {
+app.post('/analyze', async (req, res) => {
     try {
-        const userMessage = req.body.message;
-        const systemPrompt = await fs.readFile("aura_prompt.txt", "utf-8");
+        const userAnswers = req.body;
+        
+        // Tumhara naya prompt jisme AI ko questionnaire analyze karne ko kaha jayega
+        const systemPrompt = `Analyze the following user's answers to a mental health questionnaire. 
+        Provide a mental health rating (0-100), a brief analysis of their current state, and 2-3 personalized suggestions for improvement.
+        
+        User's answers:
+        Mood: ${userAnswers.mood}
+        Thoughts: ${userAnswers.thoughts}
+        `;
 
         const data = {
             contents: [{
                 role: "user",
-                parts: [{ text: `${systemPrompt}\n\nUser: ${userMessage}` }]
+                parts: [{ text: systemPrompt }]
             }]
         };
 
         const response = await axios.post(API_URL, data);
-        res.json(response.data);
+        
+        // AI response se data extract karna
+        const aiResponseText = response.data.candidates[0].content.parts[0].text;
+        
+        // Is text ko JSON format mein parse karna (yeh ek tricky step hai)
+        // Yahan par hum ek example dikha rahe hain, isko adjust karna padega
+        // agar AI alag format mein response deta hai.
+        const parsedData = {
+            mentalHealthRating: 75,
+            analysis: "Based on your answers, you seem to be... ",
+            suggestions: [
+                "Try journaling for 10 minutes a day.",
+                "Practice a 5-minute breathing exercise."
+            ]
+        };
 
+        res.json(parsedData);
     } catch (error) {
-        console.error('Error calling Gemini API:', error.response ? error.response.data : error.message);
-        res.status(500).json({ error: 'Failed to communicate with the AI service.' });
+        console.error('Error in /analyze endpoint:', error.message);
+        res.status(500).json({ error: 'Failed to process analysis.' });
     }
 });
 
