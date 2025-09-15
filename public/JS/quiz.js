@@ -2,54 +2,51 @@ const submitButton = document.querySelector('.submit-btn');
 const resultContainer = document.getElementById('results');
 
 function showPopup(message) {
-    const existing = document.querySelector(".popup-message");
-    if (existing) existing.remove();
-
-    const popup = document.createElement("div");
+    let popup = document.createElement("div");
     popup.classList.add("popup-message");
-    popup.innerHTML = `
-        <p>${message}</p>
-        <button id="closePopup">OK</button>
-    `;
+    popup.innerHTML = `<p>${message}</p><button onclick="this.parentElement.remove()">OK</button>`;
     document.body.appendChild(popup);
-
-    document.getElementById("closePopup").addEventListener("click", () => {
-        popup.remove();
-    });
 }
 
 submitButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const answers = {};
+    const answers = [];
     for (let i = 1; i <= 10; i++) {
         const answer = document.querySelector(`input[name="q${i}"]:checked`);
         if (!answer) {
             showPopup("⚠️ Please answer all questions before submitting!");
             return;
         }
-        answers[`q${i}`] = answer.value;
+        answers.push(answer.value);
     }
 
     try {
-        const response = await fetch('/analyze', {
+        const response = await fetch('/analyze', {  // Use relative path!
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(answers)
+            body: JSON.stringify({
+                mood: answers[0],
+                thoughts: answers[1]
+            })
         });
 
-        if (!response.ok) throw new Error("Server error");
+        if (!response.ok) throw new Error("Server error. Try again later.");
 
         const data = await response.json();
+
         const ratingOutOf10 = (data.mentalHealthRating / 10).toFixed(1);
+
+        let suggestionsHTML = '';
+        data.suggestions.forEach(s => {
+            suggestionsHTML += `<li>${s}</li>`;
+        });
 
         resultContainer.innerHTML = `
             <div class="result-card fade-in">
                 <h2>Your Score: ${ratingOutOf10} / 10</h2>
                 <p>${data.analysis}</p>
-                <ul id="suggestions">
-                    ${data.suggestions.map(s => `<li>${s}</li>`).join('')}
-                </ul>
+                <ul>${suggestionsHTML}</ul>
                 <button id="dashboardBtn" class="submit-btn">Go to Dashboard</button>
             </div>
         `;
@@ -58,8 +55,7 @@ submitButton.addEventListener('click', async (e) => {
             window.location.href = 'dashboard.html';
         });
 
-    } catch (error) {
-        console.error(error);
-        showPopup("⚠️ Analysis failed! Please try again later.");
+    } catch (err) {
+        showPopup(`😢 Analysis failed: ${err.message}`);
     }
 });
