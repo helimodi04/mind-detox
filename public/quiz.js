@@ -1,78 +1,41 @@
-// NEW CODE FOR quiz.js
+const submitButton = document.getElementById('submitQuizBtn');
+const resultContainer = document.getElementById('results');
 
-const submitButton = document.getElementById('submitQuiz');
-const resultModal = document.getElementById('resultModal');
-const ratingElement = document.getElementById('rating');
-const analysisElement = document.getElementById('analysis');
-const suggestionsElement = document.getElementById('suggestions');
-const closeModalButton = document.querySelector('.close');
-const dashboardButton = document.getElementById('dashboardButton');
+function showPopup(message) {
+    let popup = document.createElement("div");
+    popup.classList.add("popup-message");
+    popup.innerHTML = `<p>${message}</p><button onclick="this.parentElement.remove()">OK</button>`;
+    document.body.appendChild(popup);
+}
 
-// Ensure modal is hidden on page load
-resultModal.style.display = 'none';
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
 
-submitButton.addEventListener('click', async () => {
-    const moodAnswer = document.querySelector('input[name="mood"]:checked');
-    const thoughtsAnswer = document.querySelector('input[name="thoughts"]:checked');
-
-    if (!moodAnswer || !thoughtsAnswer) {
-        alert('Please answer all questions before submitting.');
-        return;
-    }
-
-    const userAnswers = {
-        mood: moodAnswer.value,
-        thoughts: thoughtsAnswer.value
-    };
-
-    try {
-        const response = await fetch('http://localhost:3000/analyze', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(userAnswers)
-        });
-
-        // Agar server se response 'OK' nahi hai (e.g., error 500)
-        if (!response.ok) {
-            // Server se mila error message dikhao
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Server mein kuch gadbad hai!');
+    const answers = [];
+    for (let i = 1; i <= 10; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!answer) {
+            showPopup("⚠️ Please answer all questions before submitting!");
+            return;
         }
-
-        const data = await response.json();
-        
-        // Rating ko 10 ke scale par convert karo
-        const ratingOutOf10 = (data.mentalHealthRating / 10).toFixed(1);
-
-        ratingElement.textContent = `Your Score: ${ratingOutOf10} / 10`;
-        analysisElement.textContent = data.analysis;
-        
-        suggestionsElement.innerHTML = ''; // Purane suggestions clear karo
-        data.suggestions.forEach(suggestion => {
-            const li = document.createElement('li');
-            li.textContent = suggestion;
-            suggestionsElement.appendChild(li);
-        });
-
-        resultModal.style.display = 'block';
-
-    } catch (error) {
-        // Yeh sabse important part hai
-        console.error('Fetch Error:', error);
-        alert(`Analysis nahi ho paaya! 😢\nError: ${error.message}\n\nKya aapne terminal mein 'npm start' command chalaya hai?`);
+        answers.push(answer.value);
     }
-});
 
-closeModalButton.addEventListener('click', () => {
-    resultModal.style.display = 'none';
-});
+    let score = 0;
+    answers.forEach((val) => {
+        if (val === "happy" || val === "never" || val === "rarely" || val === "not_really" || val === "talk" || val === "relax" || val === "hopeful" || val === "kind" || val === "happier" || val === "less_worried") {
+            score += 1;
+        }
+    });
 
-dashboardButton.addEventListener('click', () => {
-    window.location.href = 'dashboard.html';
-});
+    const rating = Math.round((score / 10) * 10);
+    let analysis = "";
+    if (rating >= 8) analysis = "🌟 You’re in a good mental space. Keep maintaining positivity and balance.";
+    else if (rating >= 5) analysis = "🙂 You’re doing okay, but there’s room for more self-care and awareness.";
+    else analysis = "💙 Looks like you’ve been going through a tough time. Don’t hesitate to share and seek support.";
 
-window.addEventListener('click', (event) => {
-    if (event.target == resultModal) {
-        resultModal.style.display = 'none';
-    }
+    resultContainer.innerHTML = `
+        <h2>Your Rating: ${rating}/10</h2>
+        <p>${analysis}</p>
+    `;
 });

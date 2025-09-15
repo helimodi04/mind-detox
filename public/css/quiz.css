@@ -1,97 +1,177 @@
-/* --- Mind Detox Quiz CSS --- */
-
-/* General styling to match the dashboard aesthetic */
+/* BODY & BACKGROUND */
 body {
-    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-    background-color: #f5f3ea; /* Main background color */
-    color: #2B8282; /* Main text and accent color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 120px 20px 20px 20px; /* Added top padding to account for nav */
     min-height: 100vh;
-    box-sizing: border-box;
 }
 
-/* Main container for the quiz */
 .quiz-container {
-    background-color: transparent; /* Remove white background to blend in */
-    padding: 30px;
-    box-shadow: none; /* Remove shadow for a flat design */
-    border-radius: 0; /* Remove rounded corners */
-    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px 40px;
+    border-radius: 25px;
+    width: 95%;
     max-width: 700px;
-    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    /* Vendor-prefixed property for Safari/iOS */
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Standard property for modern browsers */
+    backdrop-filter: blur(10px);
+
+    transition: transform 0.3s ease;
 }
 
+
+
+.quiz-container:hover {
+    transform: translateY(-3px);
+}
+
+/* HEADINGS */
 h1 {
     text-align: center;
-    color: #2B8282; /* Use the main theme color */
-    margin-bottom: 2rem;
+    color: #5865F2;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.question {
+p {
+    color: #555;
+    text-align: center;
     margin-bottom: 25px;
-    text-align: left; /* Align question text left for readability */
+    font-size: 1rem;
+}
+
+/* QUESTIONS */
+.question {
+    margin-bottom: 22px;
+    padding: 15px 20px;
+    background: #fdfdff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
 }
 
 .question p {
-    font-size: 1.2rem;
-    font-weight: 600; /* Using Poppins' semi-bold weight */
-    margin-bottom: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
 }
 
-/* Style for the answer options */
-.question label {
+/* RADIO LABELS */
+label {
     display: block;
-    background-color: transparent;
-    border: 1px solid #2B8282; /* Use theme color for borders */
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 0; /* Flat design */
+    margin: 8px 0;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 14px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    background: #fafaff;
+    transition: all 0.3s ease;
 }
 
-.question label:hover {
-    background-color: #2B8282; /* Fill with theme color on hover */
-    color: #f5f3ea; /* Use background color for text on hover */
+label:hover {
+    background: rgba(88,101,242,0.15);
+    border-color: #5865F2;
 }
 
-.question input[type="radio"] {
-    margin-right: 10px;
-    accent-color: #2B8282; /* Style the radio button itself */
+input[type="radio"] {
+    margin-right: 12px;
 }
 
-/* Style for the submit button */
+/* SUBMIT BUTTON */
 .submit-btn {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #2B8282; /* Use theme color */
-    color: #f5f3ea; /* Use background color for text */
+    padding: 16px;
+    background: linear-gradient(90deg, #5865F2, #a18cd1);
     border: none;
-    border-radius: 0; /* Flat design */
-    font-size: 1.2rem;
-    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 20px;
     cursor: pointer;
-    text-decoration: none;
-    transition: filter 0.3s;
-    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(88,101,242,0.3);
+    transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-    filter: brightness(90%); /* A subtle hover effect */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(88,101,242,0.5);
 }
 
-/* Style for the results area */
+/* RESULTS CONTAINER */
 #results {
     margin-top: 30px;
-    padding: 20px;
-    background-color: transparent;
-    border-left: 5px solid #2B8282; /* Keep the distinct left border */
-    border-radius: 0;
-    line-height: 1.7;
-    text-align: left;
-    font-size: 1.1rem;
+    padding: 25px 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #f3e7fd, #e3f2fd);
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#results h2 {
+    margin-bottom: 15px;
+    color: #5865F2;
+    font-size: 1.8rem;
+}
+
+#results p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* POPUP MESSAGE */
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background: linear-gradient(135deg, #f3e7fd, #d9f0ff);
+    border-radius: 25px;
+    padding: 25px 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    z-index: 9999;
+    text-align: center;
+    animation: popupFadeIn 0.3s ease forwards;
+}
+
+.popup-message p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-message button {
+    padding: 12px 25px;
+    border: none;
+    background: #5865F2;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.popup-message button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(88,101,242,0.4);
+}
+
+@keyframes popupFadeIn {
+    0% {opacity: 0; transform: translate(-50%, -70%);}
+    100% {opacity: 1; transform: translate(-50%, -50%);}
 }
