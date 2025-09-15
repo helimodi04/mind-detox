@@ -1,0 +1,97 @@
+/* --- Mind Detox Quiz CSS --- */
+
+/* General styling to match the dashboard aesthetic */
+body {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f3ea; /* Main background color */
+    color: #2B8282; /* Main text and accent color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 20px 20px; /* Added top padding to account for nav */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Main container for the quiz */
+.quiz-container {
+    background-color: transparent; /* Remove white background to blend in */
+    padding: 30px;
+    box-shadow: none; /* Remove shadow for a flat design */
+    border-radius: 0; /* Remove rounded corners */
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #2B8282; /* Use the main theme color */
+    margin-bottom: 2rem;
+}
+
+.question {
+    margin-bottom: 25px;
+    text-align: left; /* Align question text left for readability */
+}
+
+.question p {
+    font-size: 1.2rem;
+    font-weight: 600; /* Using Poppins' semi-bold weight */
+    margin-bottom: 15px;
+}
+
+/* Style for the answer options */
+.question label {
+    display: block;
+    background-color: transparent;
+    border: 1px solid #2B8282; /* Use theme color for borders */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 0; /* Flat design */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.question label:hover {
+    background-color: #2B8282; /* Fill with theme color on hover */
+    color: #f5f3ea; /* Use background color for text on hover */
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #2B8282; /* Style the radio button itself */
+}
+
+/* Style for the submit button */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #2B8282; /* Use theme color */
+    color: #f5f3ea; /* Use background color for text */
+    border: none;
+    border-radius: 0; /* Flat design */
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: filter 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    filter: brightness(90%); /* A subtle hover effect */
+}
+
+/* Style for the results area */
+#results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: transparent;
+    border-left: 5px solid #2B8282; /* Keep the distinct left border */
+    border-radius: 0;
+    line-height: 1.7;
+    text-align: left;
+    font-size: 1.1rem;
+}
