@@ -20,7 +20,14 @@ async function createUser(db, username, email, password) { // Add username param
         const [result] = await db.query(query, values);
         
         sendVerificationEmail(email, verification_token);
-return { success: true, user: { id: user.id, username: user.username, email: user.email } };
+        return {
+            success: true,
+            user: {
+                id: result.insertId,
+                username: username,
+                email: email
+            }
+        };
     } catch (error) {
         console.error('Error in createUser:', error);
         throw error;
