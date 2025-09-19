@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Color palette to match your dashboard */
+:root {
+    --background-color: #f5f3ea; /* Light beige */
+    --primary-color: #2B8282; /* Main Teal */
+    --text-color: #333333; /* Dark gray for text */
+    --light-gray: #dddddd;
+    --white-color: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.form-container {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Soft, clean shadow */
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #e0e0e0;
+}
+
+.form h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.form p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-gray);
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 16px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(43, 130, 130, 0.15); /* Subtle focus ring */
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #246f6f; /* Slightly darker teal on hover */
+    transform: translateY(-2px);
+}
+
+.form-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.form-switch a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-switch a:hover {
+    text-decoration: underline;
+}

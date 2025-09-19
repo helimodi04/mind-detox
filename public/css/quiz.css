@@ -1,0 +1,194 @@
+/* BODY & BACKGROUND */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f8f1; /* light, soft background like your site */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* QUIZ CONTAINER */
+.quiz-container {
+    background-color: #ffffff; /* clean white container */
+    padding: 40px 45px;
+    border-radius: 20px;
+    width: 95%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* HEADINGS */
+h1 {
+    text-align: center;
+    color: #2c3e50; /* dark gray for high readability */
+    font-weight: 900;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #4f4f4f; /* medium gray for description */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* QUESTIONS */
+.question {
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: #f4f4f4; /* soft gray for each question block */
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.question p {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* RADIO LABELS */
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+label:hover {
+    background-color: #e0eaf0;
+    border-color: #2c3e50;
+}
+
+input[type="radio"] {
+    accent-color: #2c3e50; /* dark gray accent for radios */
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: #2c3e50; /* main dark color */
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* RESULTS CONTAINER */
+#results {
+    background-color: #f4f4f4; /* light gray for results block */
+    border-radius: 20px;
+    padding: 25px 30px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#results h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#results p, #results ul li {
+    color: #4f4f4f;
+    font-weight: 500;
+}
+
+#results ul {
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+#results ul li {
+    margin-bottom: 8px;
+}
+
+.result-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-15px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: #2c3e50; /* dark popup */
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    z-index: 9999;
+    text-align: center;
+    animation: popupFadeIn 0.3s ease forwards;
+}
+
+.popup-message .popup-text {
+    color: #ff6b6b; /* red for warnings */
+    font-weight: 700;
+}
+
+.popup-message p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6b6b; /* red alert color for warnings */
+}
+
+.popup-message button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db; /* accent button color */
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.popup-message button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+@keyframes popupFadeIn {
+    0% {opacity: 0; transform: translate(-50%, -70%);}
+    100% {opacity: 1; transform: translate(-50%, -50%);}
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Detox Quiz</title>
+    <link rel="stylesheet" href="/css/quiz.css" />
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>Mind Awareness Quiz</h1>
+        <p>This is a gentle check-in to see how you're doing. There are no right or wrong answers.</p>
+        <form id="mindDetoxQuiz">
+            <div class="question">
+                <p>1. When you’re alone, what do you think about?</p>
+                <label><input type="radio" name="q1" value="happy"> Happy things</label>
+                <label><input type="radio" name="q1" value="worries"> Worries or problems</label>
+                <label><input type="radio" name="q1" value="blank"> Nothing, my mind feels blank</label>
+                <label><input type="radio" name="q1" value="dont_notice"> I don’t really notice my thoughts</label>
+            </div>
+            <div class="question">
+                <p>2. Do you overthink?</p>
+                <label><input type="radio" name="q2" value="always"> Almost always</label>
+                <label><input type="radio" name="q2" value="sometimes"> Sometimes</label>
+                <label><input type="radio" name="q2" value="rarely"> Rarely</label>
+                <label><input type="radio" name="q2" value="never"> Never</label>
+            </div>
+            <div class="question">
+                <p>3. Do you keep feelings inside?</p>
+                <label><input type="radio" name="q3" value="many"> Yes, many</label>
+                <label><input type="radio" name="q3" value="few"> A few</label>
+                <label><input type="radio" name="q3" value="not_really"> Not really</label>
+                <label><input type="radio" name="q3" value="not_sure"> I’m not sure</label>
+            </div>
+            <div class="question">
+                <p>4. How do you know you’re upset?</p>
+                <label><input type="radio" name="q4" value="body"> I feel it in my body (tired, tense, restless)</label>
+                <label><input type="radio" name="q4" value="thoughts"> My thoughts run fast</label>
+                <label><input type="radio" name="q4" value="mood"> My mood changes</label>
+                <label><input type="radio" name="q4" value="dont_notice"> I don’t notice</label>
+            </div>
+            <div class="question">
+                <p>5. Do you feel lonely even around people?</p>
+                <label><input type="radio" name="q5" value="often"> Often</label>
+                <label><input type="radio" name="q5" value="sometimes"> Sometimes</label>
+                <label><input type="radio" name="q5" value="rarely"> Rarely</label>
+                <label><input type="radio" name="q5" value="never"> Never</label>
+            </div>
+            <div class="question">
+                <p>6. What do you do first when stressed?</p>
+                <label><input type="radio" name="q6" value="talk"> Talk to someone I trust</label>
+                <label><input type="radio" name="q6" value="relax"> Do something relaxing (music, walk, etc.)</label>
+                <label><input type="radio" name="q6" value="inside"> Keep it inside</label>
+                <label><input type="radio" name="q6" value="distract"> Distract myself in ways that don’t help</label>
+            </div>
+            <div class="question">
+                <p>7. What small things calm you down?</p>
+                <label><input type="radio" name="q7" value="family"> Time with family/friends</label>
+                <label><input type="radio" name="q7" value="media"> Music or movies</label>
+                <label><input type="radio" name="q7" value="nature"> Being outside in nature</label>
+                <label><input type="radio" name="q7" value="other"> Other</label>
+            </div>
+            <div class="question">
+                <p>8. How do you feel when you think about the future?</p>
+                <label><input type="radio" name="q8" value="hopeful"> Hopeful and excited</label>
+                <label><input type="radio" name="q8" value="nervous"> Nervous or worried</label>
+                <label><input type="radio" name="q8" value="confused"> Confused or unsure</label>
+                <label><input type="radio" name="q8" value="avoid"> I try not to think about it</label>
+            </div>
+            <div class="question">
+                <p>9. How do you talk to yourself when things go wrong?</p>
+                <label><input type="radio" name="q9" value="kind"> I’m kind to myself</label>
+                <label><input type="radio" name="q9" value="neutral"> I stay neutral</label>
+                <label><input type="radio" name="q9" value="hard"> I’m hard on myself</label>
+                <label><input type="radio" name="q9" value="dont_notice"> I don’t notice</label>
+            </div>
+            <div class="question">
+                <p>10. If you could change one thing about how you feel every day, what would it be?</p>
+                <label><input type="radio" name="q10" value="less_worried"> Feel less worried</label>
+                <label><input type="radio" name="q10" value="more_energy"> Have more energy/motivation</label>
+                <label><input type="radio" name="q10" value="less_lonely"> Feel less lonely</label>
+                <label><input type="radio" name="q10" value="happier"> Feel happier overall</label>
+            </div>
+            <button type="submit" class="submit-btn">See My Results</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="quiz.js" defer></script>
+</body>
+
+</html>

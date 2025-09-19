@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Detox - Welcome</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="welcome-block">
+        <h1 class="welcome-heading">Welcome to Mind Detox</h1>
+        <div class="spiral-container">
+            <!-- SVG Spiral -->
+            <svg viewBox="0 0 500 500" class="spiral-svg">
+                <defs>
+                    <radialgradient id="fade" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#6ffcff" stop-opacity="0.5" />
+                        <stop offset="100%" stop-color="#3ea3a3" stop-opacity="1" />
+                    </radialgradient>
+                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <fegaussianblur stdDeviation="4" result="blur" />
+                        <femerge>
+                            <femergenode in="blur" />
+                            <femergenode in="SourceGraphic" />
+                        </femerge>
+                    </filter>
+                </defs>
+
+
+                <!-- Center glow (static) -->
+                <circle cx="250" cy="250" r="70" fill="url(#fade)" class="breathe-circle" />
+
+                <!-- Optional center text -->
+                <!-- Glow Layer -->
+                <text x="250" y="258" text-anchor="middle" fill="#2B8282" font-size="36" font-family="Segoe UI"
+                    font-weight="700" opacity="0.3">
+                    Breathe
+                </text>
+
+                <!-- Bright Text on Top -->
+                <text x="250" y="258" text-anchor="middle" fill="#00ffff" font-size="32" font-family="Segoe UI"
+                    font-weight="700">
+                    Breathe
+                </text>
+                <!-- Rotating rings -->
+                <g class="rings-group">
+                    <circle cx="250" cy="250" r="110" fill="none" stroke="url(#fade)" stroke-width="3"
+                        stroke-dasharray="10 20" stroke-opacity="0.2" />
+                    <circle cx="250" cy="250" r="150" fill="none" stroke="url(#fade)" stroke-width="3"
+                        stroke-dasharray="10 25" stroke-opacity="0.4" />
+                    <circle cx="250" cy="250" r="190" fill="none" stroke="url(#fade)" stroke-width="3"
+                        stroke-dasharray="10 30" stroke-opacity="0.7" />
+                    <circle cx="250" cy="250" r="230" fill="none" stroke="url(#fade)" stroke-width="3"
+                        stroke-dasharray="10 35" stroke-opacity="1" />
+                </g>
+
+
+            </svg>
+        </div>
+        <button class="start-btn" type="button">Start My Mind Detox</button>
+        <script>
+            document.querySelector('.start-btn').addEventListener('click', function () {
+                window.location.href = 'quiz.html';
+            });
+        </script>
+
+
+    </div>
+</body>
+
+</html>

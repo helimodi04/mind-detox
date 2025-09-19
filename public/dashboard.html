@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Mind Detox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dash.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/quote.css" />
+    <link rel="stylesheet" href="css/mood.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/setgoal.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
+    <link rel="stylesheet" href="css/zen-garden.css" />
+    <link rel="stylesheet" href="css/journal.css" />
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="brand">MIND DETOX</span>
+        </div>
+        <nav class="nav-center">
+            <ul class="nav-links">
+                <li><a href="#breathing-circle">Breathing Circle</a></li>
+                <li><a href="#motivational-quote">Motivational Quote</a></li>
+                <li><a href="#mood-tracker">Mood Tracker</a></li>
+                <li><a href="#screen-time-goal">Screen Time Goal</a></li>
+                <li><a href="#journal-writing">Journal Writing</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <div class="nav-right">
+            <button class="hamburger" type="button">
+                <span class="menu-text"></span> &#9776;
+            </button>
+            <div class="side-drawer" id="drawer">
+                <button type="button" class="drawer-close">×</button>
+                <div class="drawer-title">Menu</div>
+                <ul class="drawer-list">
+                    <li><a href="#breathing-circle">Breathing Circle</a></li>
+                    <li><a href="#motivational-quote">Motivational Quote</a></li>
+                    <li><a href="#mood-tracker">Mood Tracker</a></li>
+                    <li><a href="#screen-time-goal">Screen Time Goal</a></li>
+                    <li><a href="#journal-writing">Journal Writing</a></li>
+                    <li><a href="#chatbot">Chatbot</a></li>
+                    <li><a href="#zen-garden">Zen Garden Rake Game</a></li>
+                    <li><a href="login.html">Login</a></li>
+    <li><a href="#" id="drawer-logout-link">Logout</a></li> 
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hey, take a breath —<br>you’re not alone here.</h1>
+                <p class="hero-desc">
+                    Welcome to Mind Detox. This is your gentle space to pause, reflect, and nurture your mind. Every
+                    feeling is valid, and every step you take here is a step toward well-being. We're here for you,
+                    every day.
+                </p>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero-image.jpg" alt="Mindful person" />
+            </div>
+        </div>
+        <div class="hero-heart" aria-hidden="true">💙</div>
+    </section>
+
+    <div class="dashboard-section">
+        <section id="motivational-quote" class="quote-section">
+            <div class="quote-container">
+                <div class="quote-image">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Dreamy background">
+                </div>
+                <div class="quote-box">
+                    <p id="quoteText" class="quote-text">Loading motivational quote...</p>
+                    <p id="quoteAuthor" class="quote-author"></p>
+                    <button type="button" id="getQuoteBtn" class="quote-btn">New Quote</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="mood-tracker" class="mood-tracker-section">
+        <div id="graph" class="mood-selector">
+            <label for="mood">Select Mood:</label>
+            <select id="mood" name="mood">
+                <option value="" disabled selected>-- Choose your mood --</option>
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😔 Sad</option>
+                <option value="anxious">😟 Anxious</option>
+                <option value="angry">😠 Angry</option>
+                <option value="excited">🤩 Excited</option>
+                <option value="tired">😴 Tired</option>
+                <option value="calm">😌 Calm</option>
+            </select>
+        </div>
+    </section>
+    <div class="chart-container">
+        <canvas id="moodChart" width="400" height="250"></canvas>
+    </div>
+
+    <section id="breathing-circle" class="breathing-wrapper">
+        <div class="breathing-container">
+            <div class="breathing-left">
+                <div class="breathing-visual">
+                    <div class="circle-animation"></div>
+                    <div id="breath-instruction">Get Ready...</div>
+                </div>
+                <button type="button" id="breath-btn" onclick="toggleBreathing()" class="start-btn">Start
+                    Breathing</button>
+            </div>
+            <div class="breathing-content">
+                <h2 class="breathing-title">Just Breathe</h2>
+                <p class="breathing-description">
+                    Breathing deeply helps you slow down and become aware of the present. Try inhaling slowly...
+                    hold... and then exhale.
+                    Repeat this to reduce anxiety and regain calm. The expanding circle will guide your breath —
+                    just follow along.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="screen-time-goal" class="screen-time-section">
+        <div class="screen-time-title">| Screen Time Goal</div>
+        <div class="screen-time-desc">How many hours of screen time do you want today?</div>
+        <label for="screenSlider" class="visually-hidden">Screen time goal (hours)</label>
+        <input type="range" min="1" max="12" value="4" class="screen-time-slider" id="screenSlider"
+            title="Screen time goal in hours">
+        <div class="screen-time-value" id="screenValue">4 hours</div>
+        <button class="screen-time-btn" id="setScreenGoal">Set Goal</button>
+    </div>
+
+    <button type="button" id="chatbot-fab" class="chatbot-fab" aria-label="Open Chatbot">
+        💬
+    </button>
+
+    <div id="chatbot" class="chatbot-section chatbot-popup">
+        <div class="chatbot-header">
+            Mind Detox Chatbot 🤖
+            <button type="button" id="chatbot-close" class="chatbot-close" aria-label="Close Chatbot">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <form id="chatbotForm" class="chatbot-form" autocomplete="off">
+            <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Type your message..." required />
+            <button type="submit" class="chatbot-send">Send</button>
+        </form>
+    </div>
+
+    <section id="zen-garden" class="zen-garden-section">
+        <h2>Zen Garden Rake Game</h2>
+        <p>Relax and draw patterns in the sand. Try different rake styles and colors for a mindful break.</p>
+        <div class="zen-toolbar">
+            <label>Rake Style:
+                <select id="rakeStyle">
+                    <option value="round">Round</option>
+                    <option value="flat">Flat</option>
+                    <option value="fine">Fine</option>
+                </select>
+            </label>
+            <label>Sand Color:
+                <input type="color" id="sandColor" value="#f9f6ef">
+            </label>
+            <label>Rake Color:
+                <input type="color" id="rakeColor" value="#bfa76f">
+            </label>
+            <button id="clearZen" class="zen-clear-btn">Clear Garden</button>
+        </div>
+        <div class="zen-canvas-wrap">
+            <canvas id="zenCanvas" width="1100" height="400"></canvas>
+        </div>
+    </section>
+    <section class="chart-section">
+        <h2>Student Wellness Overview</h2>
+        <div class="chart-container">
+            <canvas id="anxietyChart"></canvas>
+        </div>
+    </section>
+    
+    <section id="journal-writing" class="journal-section">
+        <h2>Journal Writing</h2>
+        <p class="journal-desc">Write your thoughts, feelings, or gratitude. This is your safe space—only you can see
+            your words.</p>
+        <textarea id="journalEntry" class="journal-textarea" rows="8" placeholder="Start writing here..."></textarea>
+        <div class="journal-actions">
+            <button id="saveJournal" class="journal-btn">Save Entry</button>
+            <span id="journalStatus" class="journal-status"></span>
+        </div>
+    </section>
+    <div id="login-prompt-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button type="button" class="modal-close">&times;</button>
+        <h2>Login Required</h2>
+        <p>To save your journal entries, you need to be logged in.</p>
+        <a href="login.html" class="modal-login-btn">Login Now</a>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="breath.js"></script>
+    <script src="chart.js"></script>
+    <script src="quotes.js"></script>
+    <script src="goal.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="zen-garden.js"></script>
+    <script src="journal.js"></script> <script src="ui.js"></script>
+    <script src="logout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+.goal-section {
+    background: linear-gradient(135deg, #f0f4ff, #dbeafe);
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 3rem auto;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.goal-section h2 {
+    margin-bottom: 1rem;
+    color: #1f3b73;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.goal-section input[type="number"] {
+    padding: 0.7rem;
+    width: 120px;
+    margin: 0.5rem;
+    border: 1px solid #b0c4de;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+.goal-section input[type="number"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px #4a90e275;
+}
+
+.goal-section button {
+    padding: 0.6rem 1.2rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.goal-section button:hover {
+    background-color: #3a78c2;
+}
+
+#goalStatus {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.screen-time-section {
+    width: 100vw;
+    max-width: none;
+    margin: 48px 0;
+    padding: 36px 0 32px 0;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #2B828211;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen-time-title {
+    color: #2B8282;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: center;           /* Center the text */
+    border-left: none;            /* Remove left border */
+    padding-left: 0;              /* Remove left padding */
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.screen-time-desc {
+    color: #607d8b;
+    font-size: 1.18rem;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+.screen-time-slider {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+    accent-color: #2B8282;
+    height: 6px;
+    border-radius: 6px;
+    background: #f1f5f8;
+}
+
+.screen-time-value {
+    font-size: 2.2rem;
+    color: #2B8282;
+    font-weight: 800;
+    margin: 18px 0 24px 0;
+}
+
+.screen-time-btn {
+    background: #2B8282;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 36px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px #2B828211;
+    transition: background 0.2s;
+}
+
+.screen-time-btn:hover {
+    background: #1f6666;
+}

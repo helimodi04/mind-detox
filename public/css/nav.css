@@ -1,0 +1,232 @@
+.navbar {
+    width: 100%;
+    background: #2B8282;
+    box-shadow: 0 2px 6px rgba(43, 130, 130, 0.08);
+    border-bottom: 1px solid #D2DBE1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+.navbar .nav-left .brand {
+    color: #fff;
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-shadow: none;
+}
+
+.navbar .nav-left .brand:hover {
+    color: #3ea3a3;
+    text-shadow: 0 4px 16px #2B828299;
+    cursor: pointer;
+}
+
+.navbar .nav-center .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-center .nav-links li {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar .nav-center .nav-links li a {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    background: none;
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+/* Underline effect */
+.navbar .nav-center .nav-links li a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 3px;
+    background: #3ea3a3;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.35s cubic-bezier(.77, 0, .18, 1);
+    z-index: 0;
+}
+
+.navbar .nav-center .nav-links li a:hover {
+    color: #abf8f8;
+    text-decoration: underline;
+}
+
+.navbar .nav-center .nav-links li a:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-right .hamburger {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 8px 18px;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+}
+
+.navbar .nav-right .hamburger:hover {
+    color: #abf8f8;
+    background: none;
+    border-radius: 6px;
+}
+
+.navbar .nav-left .brand:hover {
+    color: #abf8f8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar .nav-right .hamburger::before,
+.navbar .nav-right .hamburger::after {
+    content: "";
+}
+
+.menu-text {
+    color: #204949;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background: #2B8282;
+    color: #a9d0d0;
+    box-shadow: -2px 0 16px #0006;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+    transition: right 0.4s cubic-bezier(.77, 0, .18, 1);
+    overflow-y: auto;
+}
+
+.side-drawer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.side-drawer::-webkit-scrollbar {
+    display: none;
+}
+
+.side-drawer::-webkit-scrollbar-thumb {
+    background-color: #3ea3a3;
+    border-radius: 4px;
+}
+
+.side-drawer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.side-drawer.show {
+    right: 0;
+}
+
+.side-drawer .drawer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a9d0d0;
+    margin-bottom: 24px;
+}
+
+.side-drawer .drawer-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.side-drawer .drawer-list li {
+    position: relative;
+    font-size: 1.2rem;
+    margin: 18px 0;
+    color: #a9d0d0;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding-bottom: 4px;
+}
+
+.side-drawer .drawer-list li a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+.side-drawer .drawer-list li a:hover {
+    color: #abf8f8;
+    text-decoration: underline;
+}
+
+/* Underline effect */
+.side-drawer .drawer-list li::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: #3ea3a3;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.35s cubic-bezier(.77, 0, .18, 1);
+    z-index: 0;
+}
+
+.side-drawer .drawer-list li:hover {
+    color: #a9d0d0;
+}
+
+.side-drawer .drawer-list li:hover::after {
+    transform: scaleX(1);
+}
+
+.side-drawer .drawer-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 2rem;
+    color: #3ea3a3;
+    cursor: pointer;
+    background: none;
+    border: none;
+}

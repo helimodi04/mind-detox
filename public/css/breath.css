@@ -1,0 +1,97 @@
+/* SECTION BACKGROUND */
+.breathing-wrapper {
+    width: 100%;
+    max-width: none;
+    margin: 40px 0;
+    margin-top: 40px;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e0f7fa, #e0f2f1, #f1f8e9);
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.breathing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+/* LEFT SIDE: CIRCLE ANIMATION */
+.breathing-visual {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    margin: 30px;
+}
+
+.circle-animation {
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 130, 130, 0.08);
+    border: 6px solid #2B8282;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(43, 130, 130, 0.2);
+    transition: transform 0.4s ease;
+}
+
+@keyframes breatheAnim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+#breath-instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2B8282;
+}
+
+/* RIGHT SIDE: TEXT CONTENT */
+.breathing-content {
+    max-width: 600px;
+    margin: 20px;
+}
+
+.breathing-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2B8282;
+    margin-bottom: 16px;
+}
+
+.breathing-description {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #2c3e50; 
+    font-weight: 500;
+    text-align: left;
+}
+
+.start-btn {
+    background-color: #2B8282;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 50px;
+    box-shadow: 0 8px 20px rgba(43, 130, 130, 0.2);
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.start-btn:hover {
+    background-color: #1f6666;
+    transform: translateY(-2px);
+}

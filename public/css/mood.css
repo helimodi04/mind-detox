@@ -1,0 +1,139 @@
+.mood-section {
+    margin-top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px #2B828211;
+    padding: 36px 0 32px 0;
+    margin: 48px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.mood-title {
+    color: #2B8282;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.mood-wheel {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.mood-emoji {
+    font-size: 2.2rem;
+    background: #fff;
+    border: 2px solid #2B8282;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-emoji:hover, .mood-emoji.selected {
+    background: #2B8282;
+    color: #fff;
+    transform: scale(1.15);
+}
+
+.mood-reflection {
+    color: #379696;
+    font-size: 1.1rem;
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+.mood-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+/* Left Side: Mood Selector Card */
+.mood-selector {
+    flex: 1;
+    min-width: 280px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    color: #2B8282;
+}
+
+.mood-selector label {
+    font-size: 1.18rem;
+    color: #3ea3a3;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.mood-selector select {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 1.08rem;
+    border-radius: 8px;
+    border: 2px solid #2B8282;
+    background: #D2DBE1;
+    color: #2B8282;
+    font-family: inherit;
+    box-shadow: 0 2px 8px #2B828211;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.mood-selector select:focus,
+.mood-selector select:hover {
+    border-color: #abf8f8;
+    box-shadow: 0 0 0 2px #3ea3a344;
+}
+
+.mood-selector option {
+    background: #137373;
+    color: #eaf6f6;
+    font-size: 1rem;
+}
+
+/* Right Side: Chart Display Box */
+.chart-container {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+/* Responsive Chart */
+.chart-container canvas {
+    width: 100% !important;
+    height: 480px !important;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 12px;
+}
