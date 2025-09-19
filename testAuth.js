@@ -5,8 +5,8 @@ const db = require('./database/user.sql'); // Adjust if your db connection is el
 async function testSignupAndLogin() {
     // Hardcoded test values
     const username = 'testuser';
-    const email = 'testuser@example.com';
-    const password = 'TestPassword123';
+    const email = 'official.minddetox@gmail.com';
+    const password = 'Mind@123';
 
     // Test user creation
     const signupResult = await createUser(username, email, password);
