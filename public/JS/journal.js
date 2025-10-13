@@ -1,4 +1,4 @@
-bdocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const textarea = document.getElementById("journalEntry");
     const saveBtn = document.getElementById("saveJournal");
     const status = document.getElementById("journalStatus");
@@ -8,10 +8,6 @@ bdocument.addEventListener("DOMContentLoaded", () => {
     if (saved) textarea.value = saved;
 
     saveBtn.addEventListener("click", () => {
-        if (!sessionStorage.getItem("isLoggedIn")) {
-            document.getElementById("login-prompt-modal").style.display = "flex";
-            return;
-        }
         localStorage.setItem("journalEntry", textarea.value);
         status.textContent = "Saved! 🌱";
         setTimeout(() => status.textContent = "", 2000);
