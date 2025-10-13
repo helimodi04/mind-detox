@@ -5,7 +5,7 @@ const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
 const mysql = require('mysql2/promise');
-const { createUser, verifyUser, loginUser } = require('./user.js');
+const { createUser, verifyUser, loginUser, requestPasswordReset, resetPassword } = require('./user.js');
 
 const app = express();
 app.use(cors());
@@ -36,6 +36,37 @@ app.post('/signup', async (req, res) => {
             return res.status(400).send('Username or email already in use.');
         }
         res.status(500).send('Error creating user.');
+    }
+});
+// This route handles the initial request from forgot-password.html
+app.post('/request-password-reset', async (req, res) => {
+    try {
+        await requestPasswordReset(db, req.body.email);
+        // For security, always send a generic success message
+        res.status(200).send('If an account with that email exists, a password reset link has been sent.');
+    } catch (error) {
+        console.error('Error in /request-password-reset route:', error);
+        res.status(500).send('An error occurred on the server.');
+    }
+});
+
+// This route will handle the form submission from reset-password.html
+app.post('/reset-password', async (req, res) => {
+    const { token, newPassword } = req.body;
+    if (!token || !newPassword) {
+        return res.status(400).send('Token and new password are required.');
+    }
+
+    try {
+        const result = await resetPassword(db, token, newPassword);
+        if (result.success) {
+            res.status(200).send(result.message);
+        } else {
+            res.status(400).send(result.message);
+        }
+    } catch (error) {
+        console.error('Error in /reset-password route:', error);
+        res.status(500).send('An error occurred on the server.');
     }
 });
 
@@ -71,8 +102,8 @@ app.post('/chat', async (req, res) => {
         const userMessage = req.body.message;
         const systemPrompt = await fs.readFile("aura_prompt.txt", "utf-8");
         const API_KEY = process.env.GEMINI_API_KEY;
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
-        const data = {
+const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+const data = {
             contents: [{
                 role: "user",
                 parts: [{ text: `${systemPrompt}\n\nUser: ${userMessage}` }]
@@ -95,8 +126,22 @@ app.get('/api/health-data', async (req, res) => {
         res.status(500).json({ message: 'Failed to retrieve data.' });
     }
 });
+// Temporary route to list available AI models
+app.get('/list-models', async (req, res) => {
+    try {
+        const API_KEY = process.env.GEMINI_API_KEY;
+        const listModelsUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`;
 
+        const response = await axios.get(listModelsUrl);
+        res.json(response.data);
+
+    } catch (error) {
+        console.error('Error listing models:', error.response ? error.response.data : error.message);
+        res.status(500).json({ error: 'Failed to retrieve model list.' });
+    }
+});
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
 });

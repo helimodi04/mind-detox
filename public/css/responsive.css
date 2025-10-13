@@ -1,7 +1,19 @@
 /* responsive.css - AI Generated Patch */
 
 /* Applying rules for screens 768px or smaller */
+   img {
+    max-width: 100%;
+    height: auto;
+}
 @media (max-width: 768px) {
+
+    /* --- Responsive Navigation --- */
+    .nav-center {
+        display: none; /* Hide the full navigation links on mobile */
+    }
+    .hamburger {
+        display: block; /* Show the hamburger button on mobile */
+    }
 
     /* === Global & Body === */
     /* Ref: dash.css, style.css */

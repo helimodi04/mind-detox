@@ -11,22 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // Set goal button click (UPDATED PART)
+    // Set goal button click
     if (setGoalBtn && slider) {
         setGoalBtn.addEventListener("click", () => {
             const goal = slider.value;
             localStorage.setItem("screenTimeGoal", goal);
-
-            // Create the new motivational message
-            const motivationalMessage = `Goal set to ${goal} hour(s)! Committing to this is a great step towards a more balanced life. ✨`;
-            
             if (goalStatus) {
-                // Update the on-page status message
-                goalStatus.textContent = `✅ ${motivationalMessage}`;
+                goalStatus.textContent = `✅ Your screen time goal is set to ${goal} hour(s).`;
                 goalStatus.style.color = "green";
             } else {
-                // Update the alert message
-                alert(motivationalMessage);
+                alert(`Goal set! Try to keep your screen time under ${goal} hours today. 😊`);
             }
         });
     }

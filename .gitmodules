@@ -1,0 +1,3 @@
+[submodule "quotes-api"]
+	path = quotes-api
+	url = https://github.com/well300/quotes-api.git
