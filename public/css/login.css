@@ -2,9 +2,12 @@
 
 /* Color palette to match your dashboard */
 :root {
-    --background-color: #f5f3ea; /* Light beige */
-    --primary-color: #2B8282; /* Main Teal */
-    --text-color: #333333; /* Dark gray for text */
+    --background-color: #f5f3ea;
+    /* Light beige */
+    --primary-color: #2B8282;
+    /* Main Teal */
+    --text-color: #333333;
+    /* Dark gray for text */
     --light-gray: #dddddd;
     --white-color: #ffffff;
 }
@@ -23,7 +26,8 @@ body {
     background-color: var(--white-color);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Soft, clean shadow */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* Soft, clean shadow */
     width: 100%;
     max-width: 400px;
     border: 1px solid #e0e0e0;
@@ -35,6 +39,10 @@ body {
     margin-bottom: 10px;
     font-weight: 600;
     font-size: 2rem;
+}
+
+.hidden {
+    display: none;
 }
 
 .form p {
@@ -64,14 +72,15 @@ body {
     border-radius: 6px;
     color: var(--text-color);
     font-size: 16px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(43, 130, 130, 0.15); /* Subtle focus ring */
+    box-shadow: 0 0 0 3px rgba(43, 130, 130, 0.15);
+    /* Subtle focus ring */
 }
 
 .submit-btn {
@@ -88,7 +97,8 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #246f6f; /* Slightly darker teal on hover */
+    background-color: #246f6f;
+    /* Slightly darker teal on hover */
     transform: translateY(-2px);
 }
 
@@ -114,9 +124,11 @@ body {
     font-size: 0.9em;
     color: var(--primary-color);
 }
+
 .message-text {
     text-align: center;
     margin-bottom: 15px;
     font-weight: bold;
-    min-height: 1.2em; /* Prevents the layout from jumping when the message appears */
+    min-height: 1.2em;
+    /* Prevents the layout from jumping when the message appears */
 }
